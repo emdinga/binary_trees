@@ -44,11 +44,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	size_t height, nodes;
 
-	if (free == NULL)
+	if (tree == NULL)
 		return (0);
 
 	height = binary_tree_height(tree);
 	nodes = binary_tree_size(tree);
 
-	return (nodes == (1 << height) - 1);
+	return (nodes = (1 << height) - 1);
 }
