@@ -2,6 +2,7 @@
 #define BINARY_TREES_H
 
 #include <stdlib.h>
+#include <stddef.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -18,6 +19,18 @@ struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 };
+
+/**
+ * queue_s - queue for the level order
+ * @front: front node of the queue
+ * @rear: rear node of the queue
+ */
+typedef strutc queue_s {
+	binary_tree_t *elements[QUEUE_SIZE];
+	size_t front;
+	size_t rear;
+} queue_t;
+
 
 typedef struct binary_tree_s binary_tree_t;
 
@@ -45,7 +58,8 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+binary_tree_t *binary_trees_ancestor(
+		const binary_tree_t *first, const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
@@ -56,5 +70,11 @@ bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
 int binary_tree_is_avl(const binary_tree_t *tree);
+int enqueue_dequeue(queue_t *queue, binary_tree_t *item);
+binary_tree_t *dequeue(queue_t *queue);
+queue_t *create_queue(void);
+binary_tree_t *dequeue(queue_t *queue);
+int is_empty(const queue_t *queue);
+
 
 #endif
