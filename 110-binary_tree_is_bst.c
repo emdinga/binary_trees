@@ -17,7 +17,7 @@ bool is_valid_bst(const binary_tree_t *node, int *prev_value)
 	if (*prev_value >= node->n)
 		return (false);
 	*prev_value = node->n;
-	return is_valid_bst(node->right, prev_value);
+	return (is_valid_bst(node->right, prev_value));
 }
 
 /**
