@@ -1,6 +1,7 @@
 #ifndef BINARY_TREES_H
 #define BINARY_TREES_H
 
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stddef.h>
 #define QUEUE_SIZE 100
@@ -72,6 +73,7 @@ binary_tree_t *dequeue(queue_t *queue);
 queue_t *create_queue(void);
 binary_tree_t *dequeue(queue_t *queue);
 int is_empty(const queue_t *queue);
+bool is_valid_bst(const binary_tree_t *node, int *prev_value);
 
 
 #endif
